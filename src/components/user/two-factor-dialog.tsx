@@ -177,7 +177,7 @@ function VerificationView({
   async function handleVerify(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const pin = formData.get("pin");
+    const pin = formData.get("pin") as string;
     if (loading) return;
     if (!pin || pin.length !== 6) {
       setError("Please enter a valid 6-digit code.");
