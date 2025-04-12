@@ -1,4 +1,4 @@
-FROM oven/bun:1.2.9-slim AS base
+FROM oven/bun:1.2.5-slim AS base
 
 # Build stage
 FROM base AS builder
@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y curl && \
     rm -rf /var/lib/apt/lists/*
 
 # Final smaller image with Alpine
-FROM oven/bun:1.2.9-alpine AS runner
+FROM oven/bun:1.2.5-alpine AS runner
 WORKDIR /app
 
 # Copy only the ffmpeg binary
